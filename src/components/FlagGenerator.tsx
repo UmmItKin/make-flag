@@ -7,6 +7,7 @@ import { toast, Toaster } from "sonner"
 
 export default function FlagGenerator() {
   const [inputText, setInputText] = useState("")
+  const [flagPrefix, setFlagPrefix] = useState("flag")
   const [generatedFlag, setGeneratedFlag] = useState("flag{THE_FLA9}")
   const [isGenerating, setIsGenerating] = useState(false)
   const [mounted, setMounted] = useState(false)
@@ -45,7 +46,7 @@ export default function FlagGenerator() {
         // Remove leading/trailing underscores
         .replace(/^_|_$/g, "")
       
-      const newFlag = `flag{${transformedText}}`
+      const newFlag = `${flagPrefix}{${transformedText}}`
       setGeneratedFlag(newFlag)
       setIsGenerating(false)
       
@@ -96,19 +97,34 @@ export default function FlagGenerator() {
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4 sm:space-y-6 px-4 sm:px-6">
-          <div className="space-y-2">
-            <label htmlFor="flag-input" className="text-sm font-medium text-muted-foreground">
-              Enter your text:
-            </label>
-            <Input
-              id="flag-input"
-              type="text"
-              placeholder="Enter your flag here"
-              value={inputText}
-              onChange={(e) => setInputText(e.target.value)}
-              onKeyPress={handleKeyPress}
-              className="text-base sm:text-lg"
-            />
+          <div className="space-y-4">
+            <div className="space-y-2">
+              <label htmlFor="flag-prefix" className="text-sm font-medium text-muted-foreground">
+                Flag prefix:
+              </label>
+              <Input
+                id="flag-prefix"
+                type="text"
+                placeholder="flag"
+                value={flagPrefix}
+                onChange={(e) => setFlagPrefix(e.target.value)}
+                className="text-base sm:text-lg"
+              />
+            </div>
+            <div className="space-y-2">
+              <label htmlFor="flag-input" className="text-sm font-medium text-muted-foreground">
+                Enter your text:
+              </label>
+              <Input
+                id="flag-input"
+                type="text"
+                placeholder="Enter your flag here"
+                value={inputText}
+                onChange={(e) => setInputText(e.target.value)}
+                onKeyPress={handleKeyPress}
+                className="text-base sm:text-lg"
+              />
+            </div>
           </div>
           
           <Button 
