@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Copy, RefreshCw, X } from "lucide-react"
+import { Copy, RefreshCw, X, Trash2 } from "lucide-react"
 import { toast, Toaster } from "sonner"
 
 export default function FlagGenerator() {
@@ -149,6 +149,18 @@ export default function FlagGenerator() {
                 <Copy className="h-3 w-3 sm:h-4 sm:w-4" />
               </Button>
             </div>
+          </div>
+          
+          <div className="mt-4 flex justify-center">
+            <Button
+              onClick={() => toast.dismiss()}
+              variant="outline"
+              size="sm"
+              className="text-red-500 border-red-500 hover:bg-red-500 hover:text-white"
+            >
+              <Trash2 className="h-4 w-4 mr-2" />
+              Clear All Notifications
+            </Button>
           </div>
         </CardContent>
       </Card>
