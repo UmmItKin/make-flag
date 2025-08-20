@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Copy, RefreshCw } from "lucide-react"
+import { Copy, RefreshCw, X } from "lucide-react"
 import { toast, Toaster } from "sonner"
 
 export default function FlagGenerator() {
@@ -53,10 +53,6 @@ export default function FlagGenerator() {
       if (mounted) {
         toast.success("Flag generated successfully!", {
           description: newFlag,
-          action: {
-            label: "Copy",
-            onClick: () => copyToClipboard(),
-          },
         })
       }
     }, 500)
@@ -67,13 +63,7 @@ export default function FlagGenerator() {
     
     try {
       await navigator.clipboard.writeText(generatedFlag)
-      toast.success("Flag copied to clipboard!", {
-        description: generatedFlag,
-        action: {
-          label: "Close",
-          onClick: () => {},
-        },
-      })
+      // Toast removed - silent copy
     } catch (err) {
       toast.error("Failed to copy flag", {
         description: "Please try again or copy manually",
@@ -168,7 +158,8 @@ export default function FlagGenerator() {
         richColors
         duration={Infinity}
         visibleToasts={Infinity}
-        expand={true}
+        expand={false}
+        style={{ width: 'auto' }}
       />
     </div>
   )
