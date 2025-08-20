@@ -27,8 +27,19 @@ export default function FlagGenerator() {
         .replace(/_+/g, "_")
         .replace(/^_|_$/g, "")
       
-      setGeneratedFlag(`flag{${transformedText}}`)
+      const newFlag = `flag{${transformedText}}`
+      setGeneratedFlag(newFlag)
       setIsGenerating(false)
+      
+      if (mounted) {
+        toast.success("Flag generated successfully!", {
+          description: newFlag,
+          action: {
+            label: "Copy",
+            onClick: () => copyToClipboard(),
+          },
+        })
+      }
     }, 500)
   }
 
@@ -119,8 +130,9 @@ export default function FlagGenerator() {
       </Card>
       <Toaster 
         theme="dark"
-        position="top-right"
+        position="bottom-right"
         richColors
+        duration={Infinity}
       />
     </div>
   )
