@@ -2,7 +2,7 @@
 
 A modern web application for generating CTF-style flags with leetspeak transformations. Built with Astro and shadcn/ui.
 
-> **Live Demo**: https://make-flag.vercel.app
+> **Live Demo**: https://flag.withkin.me
 
 ## Commands
 
