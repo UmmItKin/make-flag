@@ -1,43 +1,46 @@
-# Astro Starter Kit: Minimal
+# Make-flag - A CTF Flag Generator
 
-```sh
-bun create astro@latest -- --template minimal
-```
+A modern web application for generating CTF-style flags with leetspeak transformations. Built with Astro and shadcn/ui.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+> **Live Demo**: https://make-flag.vercel.app
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
+## Commands
 
 All commands are run from the root of the project, from a terminal:
 
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
 | `bun install`             | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
+| `bun dev`                 | Starts local dev server at `localhost:4321`     |
 
-## 👀 Want to learn more?
+## How to Use
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+1. **Enter a flag prefix** (e.g., `flag`, `HTB`, `PICO`)
+2. **Type your text** in the input field
+3. **Click "Generate Flag"** or press Enter
+4. **Copy the result** using the copy button
+5. **Clear notifications** when needed
+
+## Leetspeak Transformations
+
+The generator applies these character substitutions:
+
+- `a/A → 4`
+- `e/E → 3`
+- `i/I → 1`
+- `l/L → 1`
+- `o/O → 0`
+- `s/S → 5`
+- `t/T → 7`
+
+and more ...
+
+Special characters and non-Latin text (Chinese, Japanese, etc.) are preserved.
+
+## License
+
+Licensed under the [AGPL-3.0 License](LICENSE).
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request and use conventional commit style made the message more profeossional.
