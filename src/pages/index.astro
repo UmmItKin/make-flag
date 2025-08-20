@@ -1,14 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
+import FlagGenerator from '../components/FlagGenerator.tsx';
 ---
 
-<Layout title="Astro + shadcn/ui">
-	<main>
-		<Card className="m-8 p-6" client:visible>
-			<h1>Welcome to Astro</h1>
-			<Button client:load>A Nice Button</Button>
-		</Card>
-	</main>
+<Layout title="Make Flag - A Simple CTF Flag Generator">
+	<FlagGenerator client:load />
 </Layout>
