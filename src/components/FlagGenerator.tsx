@@ -21,10 +21,28 @@ export default function FlagGenerator() {
     setIsGenerating(true)
     
     setTimeout(() => {
-      const transformedText = inputText
-        .toUpperCase()
-        .replace(/[^A-Z0-9]/g, "_")
+      // Character substitutions (basic leetspeak style)
+      const charMap: { [key: string]: string } = {
+        'a': '4', 'A': '4',
+        'e': '3', 'E': '3',
+        'i': '1', 'I': '1',
+        'l': '1', 'L': '1',
+        'o': '0', 'O': '0',
+        's': '5', 'S': '5',
+        't': '7', 'T': '7'
+      }
+      
+      let transformedText = inputText
+        .split('')
+        .map(char => charMap[char] || char)
+        .join('')
+      
+      // Replace only spaces with underscores, preserve everything else
+      transformedText = transformedText
+        .replace(/\s+/g, "_")
+        // Clean up multiple underscores
         .replace(/_+/g, "_")
+        // Remove leading/trailing underscores
         .replace(/^_|_$/g, "")
       
       const newFlag = `flag{${transformedText}}`
