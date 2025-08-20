@@ -154,9 +154,9 @@ export default function FlagGenerator() {
                 onClick={copyToClipboard}
                 size="sm"
                 variant="outline"
-                className="absolute top-1 right-1 sm:top-2 sm:right-2 h-8 w-8 sm:h-auto sm:w-auto"
+                className="absolute top-2 right-2 sm:top-3 sm:right-3 h-8 w-8 sm:h-9 sm:w-9 p-0"
               >
-                <Copy className="h-4 w-4" />
+                <Copy className="h-3 w-3 sm:h-4 sm:w-4" />
               </Button>
             </div>
           </div>
