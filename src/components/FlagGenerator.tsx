@@ -167,6 +167,8 @@ export default function FlagGenerator() {
         position="bottom-right"
         richColors
         duration={Infinity}
+        visibleToasts={Infinity}
+        expand={true}
       />
     </div>
   )
