@@ -77,6 +77,23 @@ export default function FlagGenerator() {
     }
   }
 
+  const clearAllNotifications = () => {
+    if (!mounted) return
+    
+    // Check if there are any active toasts
+    const toastContainer = document.querySelector('[data-sonner-toaster]')
+    const activeToasts = toastContainer?.querySelectorAll('[data-sonner-toast]')
+    
+    if (!activeToasts || activeToasts.length === 0) {
+      toast.info("No notifications to clear!", {
+        description: "There are currently no active notifications",
+        duration: 10000,
+      })
+    } else {
+      toast.dismiss()
+    }
+  }
+
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-2 sm:p-4">
       <Card className="w-full max-w-2xl mx-2 sm:mx-0">
@@ -153,7 +170,7 @@ export default function FlagGenerator() {
           
           <div className="mt-4 flex justify-center">
             <Button
-              onClick={() => toast.dismiss()}
+              onClick={clearAllNotifications}
               variant="outline"
               size="sm"
               className="text-red-500 border-red-500 hover:bg-red-500 hover:text-white"
