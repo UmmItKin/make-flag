@@ -69,15 +69,15 @@ export default function FlagGenerator() {
   }
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-4">
-      <Card className="w-full max-w-2xl">
-        <CardHeader className="text-center">
-          <CardTitle className="text-4xl font-bold mb-2">CTF Flag Generator</CardTitle>
-          <CardDescription className="text-lg">
+    <div className="min-h-screen bg-background flex items-center justify-center p-2 sm:p-4">
+      <Card className="w-full max-w-2xl mx-2 sm:mx-0">
+        <CardHeader className="text-center px-4 sm:px-6">
+          <CardTitle className="text-2xl sm:text-4xl font-bold mb-2">CTF Flag Generator</CardTitle>
+          <CardDescription className="text-sm sm:text-lg">
             Transform your text into a CTF-style flag and paste it in your CTF platform.
           </CardDescription>
         </CardHeader>
-        <CardContent className="space-y-6">
+        <CardContent className="space-y-4 sm:space-y-6 px-4 sm:px-6">
           <div className="space-y-2">
             <label htmlFor="flag-input" className="text-sm font-medium text-muted-foreground">
               Enter your text:
@@ -89,14 +89,14 @@ export default function FlagGenerator() {
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
               onKeyPress={handleKeyPress}
-              className="text-lg"
+              className="text-base sm:text-lg"
             />
           </div>
           
           <Button 
             onClick={generateFlag} 
             disabled={mounted ? (!inputText.trim() || isGenerating) : false}
-            className="w-full text-lg py-6"
+            className="w-full text-base sm:text-lg py-4 sm:py-6"
           >
             {isGenerating ? (
               <>
@@ -113,14 +113,14 @@ export default function FlagGenerator() {
               Generated Flag:
             </label>
             <div className="relative">
-              <div className="p-4 bg-muted rounded-lg font-mono text-lg text-center text-primary">
+              <div className="p-3 sm:p-4 bg-muted rounded-lg font-mono text-xs sm:text-lg text-center text-primary break-all overflow-wrap-anywhere">
                 {generatedFlag}
               </div>
               <Button
                 onClick={copyToClipboard}
                 size="sm"
                 variant="outline"
-                className="absolute top-2 right-2"
+                className="absolute top-1 right-1 sm:top-2 sm:right-2 h-8 w-8 sm:h-auto sm:w-auto"
               >
                 <Copy className="h-4 w-4" />
               </Button>
