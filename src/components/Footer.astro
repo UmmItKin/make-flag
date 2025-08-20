@@ -1,0 +1,45 @@
+---
+import { Icon } from 'astro-icon/components'
+---
+
+<footer class="bg-card border-t border-border mt-auto py-6">
+  <div class="max-w-4xl mx-auto px-4">
+    <div class="mb-4 pb-4 border-b border-border/50 text-center">
+      <p class="text-xs text-muted-foreground">
+        CTF Flag Generator • Transform your text into competition-ready flags
+      </p>
+    </div>
+
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <div class="flex flex-col sm:flex-row items-center gap-4 text-sm text-muted-foreground">
+        <div class="flex items-center gap-2">
+            <a href="https://github.com/UmmItKin" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200">
+                <Icon name="mdi:account" class="h-4 w-4" />
+                <span>Made by <strong>UmmIt</strong></span>
+          </a>
+        </div>
+        <div class="hidden sm:block text-muted-foreground/50">•</div>
+        <div class="flex items-center gap-2">
+            <a href="https://github.com/UmmItKin/make-flag/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200">
+                <Icon name="el:opensource" class="h-4 w-4" />
+                <span>Licensed under <strong>AGPL-3.0</strong></span>
+            </a>
+        </div>
+        <div class="hidden sm:block text-muted-foreground/50">•</div>
+        <div class="flex items-center gap-2">
+            <a href="https://github.com/UmmItKin/make-flag" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200">
+                <Icon name="mdi:github" class="h-4 w-4" />
+                <span>Source Code</span>
+                <Icon name="mdi:open-in-new" class="h-3 w-3" />
+            </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    backdrop-filter: blur(8px);
+  }
+</style>
